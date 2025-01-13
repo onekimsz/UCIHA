@@ -32,7 +32,7 @@
         /* Grid yang menampung gambar-gambar */
         .grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 kolom pada layar besar */
+            grid-template-columns: repeat(2, 1fr); /* 2 kolom di semua ukuran */
             gap: 15px;
             width: 100%;
         }
@@ -44,9 +44,7 @@
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            /* Set gambar agar pas dalam grid item */
-            height: 200px;
-            background-color: #333;
+            height: 200px; /* Menentukan tinggi kotak */
         }
 
         .grid-item img {
@@ -151,19 +149,19 @@
         /* Responsiveness */
         @media (max-width: 1024px) {
             .grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 kolom pada tablet */
+                grid-template-columns: repeat(2, 1fr); /* Tetap 2 kolom pada tablet */
             }
         }
 
         @media (max-width: 768px) {
             .grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 kolom pada perangkat lebih kecil */
+                grid-template-columns: repeat(2, 1fr); /* Tetap 2 kolom pada perangkat lebih kecil */
             }
         }
 
         @media (max-width: 480px) {
             .grid {
-                grid-template-columns: 1fr; /* 1 kolom pada perangkat mobile */
+                grid-template-columns: repeat(2, 1fr); /* Tetap 2 kolom pada perangkat mobile */
             }
 
             .description {
