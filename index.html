@@ -11,18 +11,30 @@
             margin: 0;
             padding: 0;
             background-color: #000000;
-            overflow-x: hidden; /* Menghindari gulir horizontal */
+            overflow-x: hidden; /* Menghindari scroll horizontal */
         }
 
-        /* Grid Container */
+        /* Reset padding dan margin untuk semua elemen */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Container utama yang menampung grid gambar */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        /* Grid yang menampung gambar-gambar */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* 2 kolom pada layar besar */
             gap: 15px;
             width: 100%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 15px; /* Untuk memberi ruang di tepi */
         }
 
         .grid-item {
@@ -32,16 +44,19 @@
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            height: auto; /* Jangan set tinggi tetap, biar menyesuaikan gambar */
+            /* Set gambar agar pas dalam grid item */
+            height: 200px;
+            background-color: #333;
         }
 
         .grid-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Menyesuaikan gambar agar tetap proporsional */
             transition: transform 0.3s ease;
         }
 
+        /* Efek zoom pada gambar saat diklik */
         @keyframes zoomIn {
             0% {
                 transform: scale(1);
@@ -194,53 +209,56 @@
     </script>
 </head>
 <body>
-    <div class="grid">
-        <div class="grid-item" onclick="randomRedirect()">
-            <div class="live">LIVE</div>
-            <img src="image1.jpg" alt="Profile 1">
-            <div class="online-text">
-                <div class="online-icon"></div>
-                <span>3,899 Members Online</span>
+    <div class="container">
+        <!-- Grid container untuk menampung gambar -->
+        <div class="grid">
+            <div class="grid-item" onclick="randomRedirect()">
+                <div class="live">LIVE</div>
+                <img src="image1.jpg" alt="Profile 1">
+                <div class="online-text">
+                    <div class="online-icon"></div>
+                    <span>3,899 Members Online</span>
+                </div>
             </div>
-        </div>
-        <div class="grid-item" onclick="randomRedirect()">
-            <div class="live">LIVE</div>
-            <img src="image2.jpg" alt="Profile 2">
-            <div class="online-text">
-                <div class="online-icon"></div>
-                <span>3,899 Members Online</span>
+            <div class="grid-item" onclick="randomRedirect()">
+                <div class="live">LIVE</div>
+                <img src="image2.jpg" alt="Profile 2">
+                <div class="online-text">
+                    <div class="online-icon"></div>
+                    <span>3,899 Members Online</span>
+                </div>
             </div>
-        </div>
-        <div class="grid-item" onclick="randomRedirect()">
-            <div class="live">LIVE</div>
-            <img src="image3.jpg" alt="Profile 3">
-            <div class="online-text">
-                <div class="online-icon"></div>
-                <span>3,899 Members Online</span>
+            <div class="grid-item" onclick="randomRedirect()">
+                <div class="live">LIVE</div>
+                <img src="image3.jpg" alt="Profile 3">
+                <div class="online-text">
+                    <div class="online-icon"></div>
+                    <span>3,899 Members Online</span>
+                </div>
             </div>
-        </div>
-        <div class="grid-item" onclick="randomRedirect()">
-            <div class="live">LIVE</div>
-            <img src="image4.jpg" alt="Profile 4">
-            <div class="online-text">
-                <div class="online-icon"></div>
-                <span>3,899 Members Online</span>
+            <div class="grid-item" onclick="randomRedirect()">
+                <div class="live">LIVE</div>
+                <img src="image4.jpg" alt="Profile 4">
+                <div class="online-text">
+                    <div class="online-icon"></div>
+                    <span>3,899 Members Online</span>
+                </div>
             </div>
-        </div>
-        <div class="grid-item" onclick="randomRedirect()">
-            <div class="live">LIVE</div>
-            <img src="image5.jpg" alt="Profile 5">
-            <div class="online-text">
-                <div class="online-icon"></div>
-                <span>3,899 Members Online</span>
+            <div class="grid-item" onclick="randomRedirect()">
+                <div class="live">LIVE</div>
+                <img src="image5.jpg" alt="Profile 5">
+                <div class="online-text">
+                    <div class="online-icon"></div>
+                    <span>3,899 Members Online</span>
+                </div>
             </div>
-        </div>
-        <div class="grid-item" onclick="randomRedirect()">
-            <div class="live">LIVE</div>
-            <img src="image6.jpg" alt="Profile 6">
-            <div class="online-text">
-                <div class="online-icon"></div>
-                <span>3,899 Members Online</span>
+            <div class="grid-item" onclick="randomRedirect()">
+                <div class="live">LIVE</div>
+                <img src="image6.jpg" alt="Profile 6">
+                <div class="online-text">
+                    <div class="online-icon"></div>
+                    <span>3,899 Members Online</span>
+                </div>
             </div>
         </div>
     </div>
