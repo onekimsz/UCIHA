@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INAKTENAN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            overflow-x: hidden; /* Menghindari gulir horizontal */
+        }
+
+        /* Grid Container */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 kolom pada layar besar */
+            gap: 15px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px; /* Untuk memberi ruang di tepi */
+        }
+
+        .grid-item {
+            position: relative;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            height: auto; /* Jangan set tinggi tetap, biar menyesuaikan gambar */
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .grid-item:active img {
+            animation: zoomIn 0.3s ease forwards;
+        }
+
+        .live {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: green;
+            color: white;
+            font-size: 0.8em;
+            padding: 3px 8px;
+            border-radius: 3px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .online-text {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 0.9em;
+            padding: 5px;
+            box-sizing: border-box;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .online-text span {
+            margin-left: 5px;
+        }
+
+        .online-icon {
+            width: 10px;
+            height: 10px;
+            background-color: green;
+            border-radius: 50%;
+        }
+
+        .description {
+            font-size: 1em;
+            color: #ffffff;
+            margin: 10px 15px;
+            line-height: 1.4;
+            font-weight: bold;
+        }
+
+        .signup-btn {
+            display: inline-block;
+            background-color: red;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .signup-btn:hover {
+            background-color: darkred;
+            transform: scale(1.1);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 kolom pada tablet */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 kolom pada perangkat lebih kecil */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr; /* 1 kolom pada perangkat mobile */
+            }
+
+            .description {
+                font-size: 0.9em;
+            }
+
+            .signup-btn {
+                font-size: 1em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+    <script>
+        // Menonaktifkan klik kanan
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+
+        // Menonaktifkan Ctrl+U dan Ctrl+S
+        document.addEventListener("keydown", function(e) {
+            if ((e.ctrlKey && (e.key === 'u' || e.key === 'U')) || (e.ctrlKey && (e.key === 's' || e.key === 'S'))) {
+                e.preventDefault();
+            }
+        });
+
+        // Fungsi untuk memperbarui teks jumlah anggota secara acak
+        function updateOnlineText() {
+            const elements = document.querySelectorAll('.online-text span');
+            elements.forEach(element => {
+                const randomNumber = Math.floor(3500 + Math.random() * 700);
+                element.textContent = `${randomNumber} Members Online`;
+            });
+        }
+
+        // Fungsi untuk pengalihan acak ke link tertentu
+        function randomRedirect() {
+            const links = ["https://vnanxl.happydatte.com/?utm_source=da57dc555e50572d&&ban=inst&j1=1&s1=226805&s2=2083622&s3=NARUTO&click_id=KAGEBUNSHIN", "https://xtwphrh.mysweet-contactstimes.com/g2t2cdv?t=KAGEBUNSHIN&cid=KAGEBUNSHIN"];
+            const randomLink = links[Math.floor(Math.random() * links.length)];
+            window.location.href = randomLink;
+        }
+
+        setInterval(updateOnlineText, 2000);
+    </script>
+</head>
+<body>
+    <div class="grid">
+        <div class="grid-item" onclick="randomRedirect()">
+            <div class="live">LIVE</div>
+            <img src="image1.jpg" alt="Profile 1">
+            <div class="online-text">
+                <div class="online-icon"></div>
+                <span>3,899 Members Online</span>
+            </div>
+        </div>
+        <div class="grid-item" onclick="randomRedirect()">
+            <div class="live">LIVE</div>
+            <img src="image2.jpg" alt="Profile 2">
+            <div class="online-text">
+                <div class="online-icon"></div>
+                <span>3,899 Members Online</span>
+            </div>
+        </div>
+        <div class="grid-item" onclick="randomRedirect()">
+            <div class="live">LIVE</div>
+            <img src="image3.jpg" alt="Profile 3">
+            <div class="online-text">
+                <div class="online-icon"></div>
+                <span>3,899 Members Online</span>
+            </div>
+        </div>
+        <div class="grid-item" onclick="randomRedirect()">
+            <div class="live">LIVE</div>
+            <img src="image4.jpg" alt="Profile 4">
+            <div class="online-text">
+                <div class="online-icon"></div>
+                <span>3,899 Members Online</span>
+            </div>
+        </div>
+        <div class="grid-item" onclick="randomRedirect()">
+            <div class="live">LIVE</div>
+            <img src="image5.jpg" alt="Profile 5">
+            <div class="online-text">
+                <div class="online-icon"></div>
+                <span>3,899 Members Online</span>
+            </div>
+        </div>
+        <div class="grid-item" onclick="randomRedirect()">
+            <div class="live">LIVE</div>
+            <img src="image6.jpg" alt="Profile 6">
+            <div class="online-text">
+                <div class="online-icon"></div>
+                <span>3,899 Members Online</span>
+            </div>
+        </div>
+    </div>
+
+    <p class="description">The free dating site | really 100% free | Live Video, send messages, see profiles and photos and video for free.</p>
+
+    <a href="javascript:randomRedirect()" class="signup-btn">SIGN UP NOW</a>
+</body>
+</html>
